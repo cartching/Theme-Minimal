@@ -401,7 +401,7 @@ body.shop #content header[role="page"] { border:none; margin:0; padding:0; }
 #content .products article footer p { margin:0; padding:5px 10px 1px; }
 
 /* Product */
-#content .product article .product-images { float:left; width:450px; }
+#content .product article .product-images { float:left; width:560px; }
 #content .product article .product-image { margin-bottom:10px; }
 #content .product article .product-image img { padding:10px; }
 #content .product article .product-image img,
@@ -440,8 +440,8 @@ body.shop #content header[role="page"] { border:none; margin:0; padding:0; }
 #content .product article li.variation.option input.radio { margin-right:10px; display:inline; }
 #content .product article li.variation.option label input { width:auto; }
 #content .product article li.variation.option label span { display:inline-block; }
-#content .product article li.variation.option .stocklevel { float:right; margin-left:20px; }
-#content .product article li.variation.option .sku { clear:right; float:right; font-size:0.75em; font-style:italic; }
+#content .product article li.variation.option .stocklevel { float:right; margin-left:20px; font-size: 0.85em; }
+#content .product article li.variation.option .sku { clear:right; float:right; font-size:0.65em; font-style:italic; }
 #content .product article li.variation.option.soldout { color: rgba(255, 255, 255, 0.3); }
 #content .product article li.variation.option.soldout input { cursor:default; }
 #content .product article li.variation.option .stockdescription { font-style:italic; }
