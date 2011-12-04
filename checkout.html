@@ -52,7 +52,7 @@
             
             <div>
                 <label>Phone</label>
-                <input name="Minimalerphone" type="number" id="Minimalerphone" value="{{cart.Minimaler.phone}}" class="text med" title="Please provide your Phone No." placeholder="Your Phone No." required />
+                <input name="Minimalerphone" type="text" id="Minimalerphone" value="{{cart.Minimaler.phone}}" class="text med" title="Please provide your Phone No." placeholder="Your Phone No." required />
             </div>
         </fieldset>
     
@@ -144,7 +144,7 @@
             </div>
             <div>
                 <label for="shippingaddress.postcode">ZIP/Postal Code:</label>
-                <input name="shippingaddress.postcode" type="number" id="shippingaddress.postcode" value="{{cart.shippingaddress.postcode}}" maxlength="10" class="text sml" title="Please provide your ZIP/Postal Code" />
+                <input name="shippingaddress.postcode" type="text" id="shippingaddress.postcode" value="{{cart.shippingaddress.postcode}}" maxlength="10" class="text sml" title="Please provide your ZIP/Postal Code" />
             </div>
 
             <!-- #IF {{Minimaler.loggedin}} -->
@@ -171,10 +171,9 @@
         </fieldset>
     
     
-            
-        <div class="actions checkout">
+        <section class="actions checkout">
             <button type="submit" class="button submit" title="Go to Payment">Go to Payment &raquo;</button>
-        </div>
+        </section>
             
     
     </form>

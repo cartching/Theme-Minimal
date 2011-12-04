@@ -74,8 +74,11 @@
 
 	<section class="products">
 
+        <!-- #IF {{products.featured}} -->
 
-        <!--#FOREACH {{product in products.all | shuffle | pick(8) }} -->
+        <!-- # FOREACH { { product in products.all | shuffle | pick(8) } } -->
+		<!--#FOREACH {{product in products.featured | shuffle | pick(8) }} -->
+        
         <article class="hproduct product {{product.slug}}">
         
         	<!-- #IF {{store.loggedin}} --><a class="store-edit" href="{{product.editurl}}">(Edit)</a><!-- #ENDIF -->
@@ -101,23 +104,23 @@
 	
     		</section>
         
-            
+            <!-- 
             <footer>
-
-                <div class="social addthis">
-                    <div class="addthis_toolbox addthis_default_style" addthis:url="{{store.url}}{{product.url}}" addthis:title="{{product.title}}" addthis:description="{{product.excerpt | html_encode}}">
-                    <a class="addthis_counter addthis_pill_style"></a>
-                    </div>
-                </div>
-
-                <!-- <p class="fn url"><a href="{{product.url}}">Buy &rarr;</a></p> -->
-                
+                <p class="fn url"><a href="{{product.url}}">Buy &rarr;</a></p>
             </footer>
-
+			-->
+            
         </article>
         <!--#NEXT -->
 
         <div class="clear"></div>
+
+		<!-- #ELSE -->
+        
+	        <h3>No Featured Products yet!</h3>
+        
+        <!-- #ENDIF -->
+
 
 	</section>
 

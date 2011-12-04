@@ -44,6 +44,8 @@
 
     </ol>
 </nav>
+
+
 <!-- #ENDBLOCK -->
 
 
@@ -74,17 +76,16 @@
     
     	<article>
 
-
             <!-- #IF {{product.image}} -->
             <section class="product-images">
 
-                <figure>
-                    <div class="product-image"><img class="photo" src="{{product.image}}?w=500&h=750&crop=false" alt="{{product.name | html_encode}} / {{product.price | money}}" /></div>
+                <figure class="product-image">
+                    <img class="photo" src="{{product.image}}?w=540&h=750&crop=false" alt="{{product.name | html_encode}} / {{product.price | money}}" />
                 </figure>
 
                 <ul class="product-image-thumbnails" id="gallery">
                     <!-- #FOREACH {{image in product.images}} -->
-                    <li><a title="{{product.name | html_encode}} - {{product.price | money}}" href="{{image.url}}?w=1024&h=1024&crop=false"><img src="{{image.url}}?w=70&h=70&crop=true" alt="{{image.title | html_encode}}" class="photo" /></a></li>
+                    <li><a title="{{product.name | html_encode}} - {{product.price | money}}" href="{{image.url}}?w=1024&h=1024&crop=false"><img src="{{image.url}}?w=50&h=50&crop=true" alt="{{image.title | html_encode}}" class="photo" /></a></li>
                     <!-- #NEXT -->
                 </ul>
 
@@ -94,6 +95,18 @@
 
 
 			<section class="product-details">
+
+            
+                <div class="social addthis">
+                    <div class="addthis_toolbox addthis_default_style" addthis:url="{{store.url}}{{product.url}}" addthis:title="{{product.name | html_encode}}" addthis:description="{{product.excerpt | html_encode}}">
+                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                    <a class="addthis_button_tweet"></a>
+                    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                    <a class="addthis_counter addthis_pill_style"></a>
+                    </div>
+                </div>        
+                <div class="social ratings"><script type="text/javascript" src="http://SetRating.com/SetRating.js"></script><script type="text/javascript">SetRatingWidget("star")</script></div>
+
 
                 <p class="price">
                 
@@ -113,18 +126,6 @@
                 <p class="product-tax"><span class="inctax">incl. tax</span></p>
                 <!-- #ENDIF -->
     
-
-    			<div class="social addthis">
-                    <div class="addthis_toolbox addthis_default_style" addthis:url="{{store.url}}{{product.url}}" addthis:title="{{product.name | html_encode}}" addthis:description="{{product.excerpt | html_encode}}">
-                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-                    <a class="addthis_button_tweet"></a>
-                    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-                    <a class="addthis_counter addthis_pill_style"></a>
-                    </div>
-				</div>
-                
-                <div class="social ratings"><script type="text/javascript" src="http://SetRating.com/SetRating.js"></script><script type="text/javascript">SetRatingWidget("star")</script></div>
-
 
 			<!-- #IF {{product.soldout}} -->
 
