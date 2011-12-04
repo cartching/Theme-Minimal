@@ -17,14 +17,14 @@
 	<header role="page">
 
 
-        <!-- #IF {{Minimaler.loggedin}} -->
+        <!-- #IF {{customer.loggedin}} -->
         
-            <h1>Welcome back <em>{{Minimaler.firstname}}</em>!</h1>
+            <h1>Welcome back <em>{{customer.firstname}}</em>!</h1>
             <p>Update your <a href="/account/">Account</a>, or manage your <a href="/orders/">Orders</a>.</p>
         
-            <!-- #IF {{snippets.Minimaler-welcome-message}} -->
-            <div class="Minimaler-welcome-message">
-                {{snippets.Minimaler-welcome-message}}
+            <!-- #IF {{snippets.customer-welcome-message}} -->
+            <div class="customer-welcome-message">
+                {{snippets.customer-welcome-message}}
             </div>    
             <!-- #ENDIF -->
         

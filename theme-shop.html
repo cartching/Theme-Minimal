@@ -39,7 +39,7 @@
     <!-- #IF {{snippets.head-content}} -->
     {{snippets.head-content}}
     <!-- #ELSE -->
-        <!-- // Minimal Snippet: Head Content
+        <!-- // Snippet: Head Content
             Example -
             <meta name="google-site-verification" content="" />
         -->
@@ -74,11 +74,11 @@
 
 
 
-    <!-- #IF {{Minimaler.loggedin}} -->
+    <!-- #IF {{customer.loggedin}} -->
 	<section role="userbar" class="userbar loggedin">
     	<nav>
             <ul>
-                <li class="welcome">Welcome, <strong> {{Minimaler.firstname}}!</strong></li>
+                <li class="welcome">Welcome, <strong> {{customer.firstname}}!</strong></li>
                 <li class="account"><a href="/account/" rel="nofollow">Account</a></li>
                 <li class="orders"><a href="/orders/" rel="nofollow">Orders</a></li>
                 <!-- #IF {{cart.items.count}} -->
@@ -248,7 +248,7 @@
 <!-- #IF {{snippets.script-content}} -->
 {{snippets.script-content}}
 <!-- #ELSE -->
-<!-- // Minimal Snippet: Script Content
+<!-- // Snippet: Script Content
         Example -
         Google Anayltics Code <script>...</script>
 -->

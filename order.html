@@ -33,14 +33,14 @@
         <h3>Sold To</h3>
         <ul>
             <li>
-                <label>Full Name:</label> <span>{{order.Minimaler.name}}</span>
+                <label>Full Name:</label> <span>{{order.customer.name}}</span>
             </li>
             <li>
-                <label>Email:</label> <span>{{order.Minimaler.email}}</span>
+                <label>Email:</label> <span>{{order.customer.email}}</span>
             </li>
-            <!-- #IF {{order.Minimaler.phone}} -->
+            <!-- #IF {{order.customer.phone}} -->
             <li>
-                <label>Phone:</label> <span>{{order.Minimaler.phone}}</span>
+                <label>Phone:</label> <span>{{order.customer.phone}}</span>
             </li>
             <!-- #ENDIF -->
 
