@@ -6,7 +6,7 @@
 <!-- #EXTENDS file="theme-shop.html" -->
 
 <!-- #BLOCK for="page_title" -->
-    <!-- #IF {{Minimaler.loggedin}} -->
+    <!-- #IF {{customer.loggedin}} -->
     <title>Your Account | {{store | html_encode}}</title>
     <!-- #ELSE -->
     <title>Sign In | {{store | html_encode}}</title>
@@ -22,7 +22,7 @@
 	
 	<header role="page">
 
-        <!-- #IF {{Minimaler.loggedin}} -->
+        <!-- #IF {{customer.loggedin}} -->
         <h1>Your Account</h1>
         <!-- #ELSE -->
         <h1><a href="#" id="create-account" onClick="$('.account-form').hide();$('.signin-form').fadeIn();">Sign In</a> <!-- #IF {{cart.items.count}} --><em>Or</em> <a href="#" id="create-account" onClick="$('.signin-form').hide();$('.account-form').fadeIn();">Create an Account</a><!-- #ENDIF --></h1>
@@ -32,7 +32,7 @@
 
 
 
-    <!-- #IF {{Minimaler.loggedin}} -->
+    <!-- #IF {{customer.loggedin}} -->
     <!-- #ELSE -->
     <div class="signin-form">
     
@@ -81,7 +81,7 @@
 
 
 
-    <div <!-- #IF {{Minimaler.loggedin}} --><!-- #ELSE -->style="display:none;"<!-- #ENDIF --> class="account-form">
+    <div <!-- #IF {{customer.loggedin}} --><!-- #ELSE -->style="display:none;"<!-- #ENDIF --> class="account-form">
 
 
 
@@ -93,16 +93,16 @@
             <legend>Personal Details</legend>
             <div>
                 <label>Name</label>
-                <input name="Name" type="text" id="name" value="{{Minimaler.name}}" class="text lrg required" title="Please provide your Name" validate />
+                <input name="Name" type="text" id="name" value="{{customer.name}}" class="text lrg required" title="Please provide your Name" validate />
             </div>
             <div>
                 <label>Email</label>
-                <input name="Email" type="text" id="email" value="{{Minimaler.email}}" class="text lrg required" title="Please provide your Email" validate />
+                <input name="Email" type="text" id="email" value="{{customer.email}}" class="text lrg required" title="Please provide your Email" validate />
                 <span class="hint">name@email.com</span>
             </div>
             <div>
                 <label>Phone</label>
-                <input name="Phone" type="text" id="phone" value="{{Minimaler.phone}}" class="text med" title="Please provide your Phone No." />
+                <input name="Phone" type="text" id="phone" value="{{customer.phone}}" class="text med" title="Please provide your Phone No." />
             </div>
         </fieldset>
     
@@ -127,80 +127,80 @@
             <p>Please address all invoices and receipts to</p>
             <div>
                 <label for="billingaddress.street">Address Line 1:</label>
-                <input name="billingaddress.street" type="text" id="billingaddress.street" value="{{Minimaler.billingaddress.street}}" class="text lrg required" title="Please provide your Street address, P.O. box, company name, c/o" validate />
+                <input name="billingaddress.street" type="text" id="billingaddress.street" value="{{customer.billingaddress.street}}" class="text lrg required" title="Please provide your Street address, P.O. box, company name, c/o" validate />
                 <span class="hint">Street address, P.O. box, company name, c/o</span>
             </div>
             <div>
                 <label for="billingaddress.street2">Address Line 2:</label>
-                <input name="billingaddress.street2" type="text" id="billingaddress.street2" value="{{Minimaler.billingaddress.street2}}" class="text lrg" title="Please provide your Apartment, suite, unit, building, floor, etc." validate />
+                <input name="billingaddress.street2" type="text" id="billingaddress.street2" value="{{customer.billingaddress.street2}}" class="text lrg" title="Please provide your Apartment, suite, unit, building, floor, etc." validate />
                 <span class="hint">Apartment, suite, unit, building, floor, etc.</span>
             </div>
             <div>
                 <label for="billingaddress.city">City</label>
-                <input name="billingaddress.city" type="text" id="billingaddressCity" value="{{Minimaler.billingaddress.city}}" class="text lrg required" title="Please provide your City" validate />
+                <input name="billingaddress.city" type="text" id="billingaddressCity" value="{{customer.billingaddress.city}}" class="text lrg required" title="Please provide your City" validate />
             </div>
             <div>
                 <label for="billingaddress.state">State/Province/Region</label>
-                <input name="billingaddress.state" type="text" id="billingaddress.state" value="{{Minimaler.billingaddress.state}}" class="text med required" title="Please provide your State/Province/Region" validate />
+                <input name="billingaddress.state" type="text" id="billingaddress.state" value="{{customer.billingaddress.state}}" class="text med required" title="Please provide your State/Province/Region" validate />
             </div>
             <div>
                 <label for="billingaddress.countrycode">Country:</label>
                 <select name="billingaddress.countrycode" id="billingaddress.countrycode" class="select lrg required" title="Country">
                     <option>&nbsp;</option>
-                     {{Countries|html_options(Name,countrycode,Minimaler.billingaddress.Country.countrycode)}}
+                     {{Countries|html_options(Name,countrycode,customer.billingaddress.Country.countrycode)}}
                 </select>
             </div>
             <div>
                 <label for="billingaddress.postcode">ZIP/Postal Code:</label>
-                <input name="billingaddress.postcode" type="number" id="billingaddress.postcode" value="{{Minimaler.billingaddress.postcode}}" class="text sml required" title="Please provide your ZIP/Postal Code" validate />
+                <input name="billingaddress.postcode" type="number" id="billingaddress.postcode" value="{{customer.billingaddress.postcode}}" class="text sml required" title="Please provide your ZIP/Postal Code" validate />
             </div>
             <div class="checkbox">
-                <input id="ShipTobillingaddress" type="checkbox" name="ShipTobillingaddress" onclick="enableshippingaddress(!this.checked);" value="true" {{Minimaler.shiptobillingaddress | default('true') | html_checked}} />
+                <input id="ShipTobillingaddress" type="checkbox" name="ShipTobillingaddress" onclick="enableshippingaddress(!this.checked);" value="true" {{customer.shiptobillingaddress | default('true') | html_checked}} />
                 <label for="ShipTobillingaddress">Use my Billing address for Shipping</label>
             </div>
         </fieldset>
     
             
         
-        <fieldset class="shipping-details" style="{{Minimaler.shiptobillingaddress | default('true') | if('display:none','')}}">
+        <fieldset class="shipping-details" style="{{customer.shiptobillingaddress | default('true') | if('display:none','')}}">
             <legend>Shipping Address</legend>
             
             <p>Complete only if different to the Billing Address</p>
             
             <div>
                 <label for="shippingaddress.street">Address Line 1:</label>
-                <input name="shippingaddress.street" type="text" id="shippingaddress.street" value="{{Minimaler.shippingaddress.street}}" class="text lrg" title="Please provide your Street address, P.O. box, company name, c/o" />
+                <input name="shippingaddress.street" type="text" id="shippingaddress.street" value="{{customer.shippingaddress.street}}" class="text lrg" title="Please provide your Street address, P.O. box, company name, c/o" />
                 <span class="hint">Street address, P.O. box, company name, c/o</span>
             </div>
             <div>
                 <label for="shippingaddress.street2">Address Line 2:</label>
-                <input name="shippingaddress.street2" type="text" id="shipaddress2" value="{{Minimaler.shippingaddress.street2}}" class="text lrg" title="Please provide your Apartment, suite, unit, building, floor, etc." />
+                <input name="shippingaddress.street2" type="text" id="shipaddress2" value="{{customer.shippingaddress.street2}}" class="text lrg" title="Please provide your Apartment, suite, unit, building, floor, etc." />
                 <span class="hint">Apartment, suite, unit, building, floor, etc.</span>
             </div>
             <div>
                 <label for="shippingaddress.city">City</label>
-                <input name="shippingaddress.city" type="text" id="shippingaddress.city" value="{{Minimaler.shippingaddress.city}}" class="text lrg" title="Please provide your City" />
+                <input name="shippingaddress.city" type="text" id="shippingaddress.city" value="{{customer.shippingaddress.city}}" class="text lrg" title="Please provide your City" />
             </div>
             <div>
                 <label for="shippingaddress.state">State/Province/Region</label>
-                <input name="shippingaddress.state" type="text" id="shippingaddress.state" value="{{Minimaler.shippingaddress.state}}" class="text med" title="Please provide your State/Province/Region" />
+                <input name="shippingaddress.state" type="text" id="shippingaddress.state" value="{{customer.shippingaddress.state}}" class="text med" title="Please provide your State/Province/Region" />
             </div>
             <div>
                 <label for="shippingaddress.countrycode">Country:</label>
                 <select name="shippingaddress.countrycode" id="shippingaddress.countrycode" class="select lrg required" title="Country">
                     <option>&nbsp;</option>
-                    {{Countries|html_options(Name,countrycode,Minimaler.shippingaddress.Country.countrycode)}}
+                    {{Countries|html_options(Name,countrycode,customer.shippingaddress.Country.countrycode)}}
                 </select>
             </div>
             <div>
                 <label for="shippingaddress.postcode">ZIP/Postal Code:</label>
-                <input name="shippingaddress.postcode" type="number" id="shippingaddress.postcode" value="{{Minimaler.shippingaddress.postcode}}" class="text sml" title="Please provide your ZIP/Postal Code" />
+                <input name="shippingaddress.postcode" type="number" id="shippingaddress.postcode" value="{{customer.shippingaddress.postcode}}" class="text sml" title="Please provide your ZIP/Postal Code" />
             </div>
         </fieldset>
 
     
     
-        <!-- #IF {{Minimaler.loggedin}} -->
+        <!-- #IF {{customer.loggedin}} -->
             
             <div class="actions account save">
                 <button type="submit" class="button updateaccount" title="Update your Account Details">Update Your Account</button>

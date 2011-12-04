@@ -35,7 +35,7 @@
 
 
     <form action="/checkout" method="post" id="form-checkout" validate>
-    <input type="hidden" name="Minimaler.id" value="{{Minimaler.id}}" />
+    <input type="hidden" name="customer.id" value="{{customer.id}}" />
     
     
         
@@ -43,16 +43,16 @@
             <legend>Personal Details</legend>
             <div>
                 <label>Full Name</label>
-                <input name="Minimalername" type="text" id="Minimalername" value="{{cart.Minimaler.name}}" class="text lrg required" title="Please provide your Name" placeholder="Your Full Name" autofocus required />
+                <input name="customername" type="text" id="customername" value="{{cart.customer.name}}" class="text lrg required" title="Please provide your Name" placeholder="Your Full Name" autofocus required />
             </div>
             <div>
                 <label>Email</label>
-                <input name="Minimaleremail" type="email" id="Minimaleremail" value="{{cart.Minimaler.email}}" class="text lrg required" title="Please provide your Email" placeholder="Your Email" required />
+                <input name="customeremail" type="email" id="customeremail" value="{{cart.customer.email}}" class="text lrg required" title="Please provide your Email" placeholder="Your Email" required />
             </div>
             
             <div>
                 <label>Phone</label>
-                <input name="Minimalerphone" type="text" id="Minimalerphone" value="{{cart.Minimaler.phone}}" class="text med" title="Please provide your Phone No." placeholder="Your Phone No." required />
+                <input name="customerphone" type="text" id="customerphone" value="{{cart.customer.phone}}" class="text med" title="Please provide your Phone No." placeholder="Your Phone No." required />
             </div>
         </fieldset>
     
@@ -96,7 +96,7 @@
                 <input id="ShipTobillingaddress" type="checkbox" name="ShipTobillingaddress" onclick="enableshippingaddress(!this.checked);" value="true" {{cart.shiptobillingaddress | default('true') | html_checked}} /> Use my Billing address for Shipping</label>
             </div>
     
-            <!-- #IF {{Minimaler.loggedin}} -->
+            <!-- #IF {{customer.loggedin}} -->
             <div id="account-billing-saveaccount" class="checkbox">
                 <input type="checkbox" id="billing-saveaccount" name="savebillingaddressAsDefault" value="true" class="checkbox" />
                 <label for="billing-saveaccount">Save as my default billing details</label>
@@ -147,7 +147,7 @@
                 <input name="shippingaddress.postcode" type="text" id="shippingaddress.postcode" value="{{cart.shippingaddress.postcode}}" maxlength="10" class="text sml" title="Please provide your ZIP/Postal Code" />
             </div>
 
-            <!-- #IF {{Minimaler.loggedin}} -->
+            <!-- #IF {{customer.loggedin}} -->
             <div id="account-shipping-saveaccount" class="checkbox">
                 <input type="checkbox" id="saveaccount-saveaccount" name="saveshippingaddressasdefault" value="true" class="checkbox" />
                 <span for="shipping-saveaccount">Save as my default shipping details</span>
